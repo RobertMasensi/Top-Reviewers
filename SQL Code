@@ -11,4 +11,4 @@ JOIN`tv_db`.`series`
  ON `tv_db`.`reviews`.`series_id` = `tv_db`.`series`.`id`
  JOIN `tv_db`.`reviewers` 
 ON `tv_db`.`reviews`.`reviewer_id` = `tv_db`.`reviewers`.`id`
-GROUP BY `title`,`reviewer`, `released_year`,`genre`
+GROUP BY `title`,`reviewer`, `released_year`,`genre`,`rating`
