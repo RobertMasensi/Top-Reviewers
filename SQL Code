@@ -1,3 +1,5 @@
+CREATE VIEW series_ratings
+ AS 
 SELECT `tv_db`.`series`.`title` AS `title`,
 `tv_db`.`series`.`released_year` AS `released_year`,
 `tv_db`.`series`.`genre` AS `genre`,
