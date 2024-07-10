@@ -1,0 +1,11 @@
+SELECT `tv_db`.`series`.`title` AS `title`,
+`tv_db`.`series`.`released_year` AS `released_year`,
+`tv_db`.`series`.`genre` AS `genre`,
+CONCAT(`tv_db`.`reviewers`.`first_name`,`tv_db`.`reviewers`.`last_name`) AS `reviewer`,
+`tv_db`.`reviews`.`rating` AS `rating`,
+ROUND(AVG(`tv_db`.`reviews`.`rating`) OVER (PARTITION BY `tv_db`.`series`.`title`) ,1) AS `avg_series_rating` 
+FROM `tv_db`.`reviews` 
+JOIN`tv_db`.`series`
+ ON `tv_db`.`reviews`.`series_id` = `tv_db`.`series`.`id`
+ JOIN `tv_db`.`reviewers` 
+ON `tv_db`.`reviews`.`reviewer_id` = `tv_db`.`reviewers`.`id`
